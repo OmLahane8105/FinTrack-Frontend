@@ -70,3 +70,39 @@ export const getMonthlyReport = async (
 
   return response.data;
 };
+
+export const exportReportCsv = async (
+  from: string,
+  to: string
+): Promise<Blob> => {
+  const response = await api.get(
+    "/api/reports/export/csv",
+    {
+      params: {
+        from,
+        to,
+      },
+      responseType: "blob",
+    }
+  );
+
+  return response.data;
+};
+
+export const exportReportPdf = async (
+  from: string,
+  to: string
+): Promise<Blob> => {
+  const response = await api.get(
+    "/api/reports/export/pdf",
+    {
+      params: {
+        from,
+        to,
+      },
+      responseType: "blob",
+    }
+  );
+
+  return response.data;
+};

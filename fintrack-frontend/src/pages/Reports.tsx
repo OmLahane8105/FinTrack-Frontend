@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import {
+  exportReportCsv,
+  exportReportPdf,
   getCategoryReport,
   getMonthlyReport,
   getReportSummary,
@@ -54,6 +56,9 @@ const Reports = () => {
   const [loading, setLoading] = useState(true);
 
   const [error, setError] = useState("");
+
+  const [exporting, setExporting] =
+    useState<"csv" | "pdf" | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -118,6 +123,71 @@ const Reports = () => {
     };
   }, [selectedYear, selectedMonth]);
 
+  const handleExport = async (
+    format: "csv" | "pdf"
+  ) => {
+    if (exporting) {
+      return;
+    }
+
+    try {
+      setExporting(format);
+      setError("");
+
+      const { from, to } = getMonthRange(
+        selectedYear,
+        selectedMonth
+      );
+
+      const blob =
+        format === "csv"
+          ? await exportReportCsv(from, to)
+          : await exportReportPdf(from, to);
+
+      if (!blob || blob.size === 0) {
+        throw new Error(
+          "The exported file was empty."
+        );
+      }
+
+      const url =
+        window.URL.createObjectURL(blob);
+
+      const link =
+        document.createElement("a");
+
+      link.href = url;
+
+      link.download =
+        `fintrack-report-${from}-to-${to}.${format}`;
+
+      document.body.appendChild(link);
+
+      link.click();
+
+      link.remove();
+
+      window.URL.revokeObjectURL(url);
+
+    } catch (err) {
+
+      console.error(
+        `Failed to export ${format} report:`,
+        err
+      );
+
+      setError(
+        format === "csv"
+          ? "Unable to export the CSV report. Please try again."
+          : "Unable to export the PDF report. Please try again."
+      );
+
+    } finally {
+
+      setExporting(null);
+    }
+  };
+  
   return (
     <div className="reports-page">
 
@@ -131,9 +201,33 @@ const Reports = () => {
           </p>
         </div>
 
-        <div className="reports-filters">
+        <div className="reports-actions">
 
-          <select
+          <button
+            type="button"
+            className="secondary-button"
+            onClick={() => void handleExport("csv")}
+            disabled={exporting !== null}
+          >
+            {exporting === "csv"
+              ? "Exporting..."
+              : "Export CSV"}
+          </button>
+
+          <button
+            type="button"
+            className="secondary-button"
+            onClick={() => void handleExport("pdf")}
+            disabled={exporting !== null}
+          >
+            {exporting === "pdf"
+              ? "Exporting..."
+              : "Export PDF"}
+          </button>
+
+          <div className="reports-filters">
+
+            <select
             value={selectedMonth}
             onChange={(event) =>
               setSelectedMonth(
@@ -177,10 +271,11 @@ const Reports = () => {
             ))}
           </select>
 
+            </div>
+
         </div>
 
       </div>
-
       {loading && (
         <div className="reports-loading">
           Loading reports...
