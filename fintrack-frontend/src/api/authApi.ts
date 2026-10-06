@@ -57,3 +57,14 @@ export const logoutApi = async (
 export const getGoogleOAuthUrl = (): string => {
   return `${API_URL}/oauth2/authorization/google`;
 };
+
+
+export const verifyEmailApi = async (
+  token: string
+): Promise<void> => {
+  await api.get("/api/auth/verify-email", {
+    params: {
+      token,
+    },
+  });
+};

@@ -4,7 +4,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-
+import VerifyEmail from "./pages/VerifyEmail";
 import FinancialInsights from "./pages/FinancialInsights";
 import OAuth2Callback from "./pages/OAuth2Callback";
 import AIAssistant from "./pages/AIAssistant";
@@ -43,6 +43,11 @@ function App() {
         element={<Register />}
       />
 
+    <Route
+      path="/verify-email"
+      element={<VerifyEmail />}
+    />
+    
       <Route
         path="/oauth2/callback"
         element={<OAuth2Callback />}

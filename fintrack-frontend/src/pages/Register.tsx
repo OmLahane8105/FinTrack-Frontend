@@ -1,11 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import api from "../api/api";
 
 export default function Register() {
 
-  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -36,16 +35,14 @@ export default function Register() {
       });
 
       setSuccess(
-        "Registration successful. You can now login."
+        "Registration successful. Please check your email and click the verification link before logging in."
       );
 
       setName("");
       setEmail("");
       setPassword("");
 
-      setTimeout(() => {
-        navigate("/login");
-      }, 1000);
+      
 
     } catch (error: unknown) {
 
