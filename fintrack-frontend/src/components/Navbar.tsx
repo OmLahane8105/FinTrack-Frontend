@@ -10,6 +10,8 @@ import {
   type Notification,
 } from "../api/notificationsApi";
 
+import fintrackLogo from "../assets/fintrack-logo.png";
+
 export default function Navbar() {
   const { user, logout } = useAuth();
 
@@ -44,7 +46,6 @@ export default function Navbar() {
     setMobileOpen(false);
     setNotificationsOpen(false);
   };
-
 
   const loadNotifications = async () => {
     try {
@@ -144,7 +145,8 @@ export default function Navbar() {
 
     const fetchUnreadCount = async () => {
       try {
-        const response = await getUnreadNotificationCount();
+        const response =
+          await getUnreadNotificationCount();
 
         if (!cancelled) {
           setUnreadCount(response.count);
@@ -184,8 +186,17 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/dashboard" onClick={closeMenus}>
-          FinTrack
+        <Link
+          to="/dashboard"
+          onClick={closeMenus}
+          aria-label="FinTrack Dashboard"
+          className="navbar-brand-link"
+        >
+          <img
+            src={fintrackLogo}
+            alt="FinTrack"
+            className="navbar-logo"
+          />
         </Link>
       </div>
 
@@ -245,10 +256,24 @@ export default function Navbar() {
           </Link>
 
           <Link
+            to="/recurring-transactions"
+            onClick={closeMenus}
+          >
+            Recurring
+          </Link>
+
+          <Link
             to="/reports"
             onClick={closeMenus}
           >
             Reports
+          </Link>
+
+          <Link
+            to="/ai"
+            onClick={closeMenus}
+          >
+            AI Assistant
           </Link>
 
           <div className="navbar-more">
@@ -258,73 +283,21 @@ export default function Navbar() {
               onClick={() =>
                 setMoreOpen((open) => !open)
               }
-              aria-expanded={moreOpen}
             >
               More
               <span className="navbar-more-arrow">
-                {moreOpen ? "▲" : "▼"}
+                ▼
               </span>
             </button>
 
             {moreOpen && (
               <div className="navbar-dropdown">
                 <Link
-                  to="/transfers"
-                  onClick={closeMenus}
-                >
-                  Transfers
-                </Link>
-
-                <Link
-                  to="/categories"
-                  onClick={closeMenus}
-                >
-                  Categories
-                </Link>
-
-                <Link
-                  to="/analytics"
-                  onClick={closeMenus}
-                >
-                  Analytics
-                </Link>
-
-                <Link
-                  to="/financial-health"
-                  onClick={closeMenus}
-                >
-                  Financial Health
-                </Link>
-
-                <Link
-                  to="/financial-insights"
+                  to="/insights"
                   onClick={closeMenus}
                 >
                   Financial Insights
                 </Link>
-
-                <Link
-                  to="/recurring-transactions"
-                  onClick={closeMenus}
-                >
-                  Recurring Transactions
-                </Link>
-
-                <Link
-                  to="/ai"
-                  onClick={closeMenus}
-                >
-                  FinTrack AI 🤖
-                </Link>
-
-                {user?.role === "ADMIN" && (
-                  <Link
-                    to="/admin"
-                    onClick={closeMenus}
-                  >
-                    Admin
-                  </Link>
-                )}
               </div>
             )}
           </div>
@@ -337,7 +310,6 @@ export default function Navbar() {
               className="navbar-notification-button"
               onClick={toggleNotifications}
               aria-label="Notifications"
-              aria-expanded={notificationsOpen}
             >
               <span className="navbar-notification-icon">
                 🔔
@@ -345,8 +317,8 @@ export default function Navbar() {
 
               {unreadCount > 0 && (
                 <span className="navbar-notification-badge">
-                  {unreadCount > 99
-                    ? "99+"
+                  {unreadCount > 9
+                    ? "9+"
                     : unreadCount}
                 </span>
               )}
@@ -355,26 +327,20 @@ export default function Navbar() {
             {notificationsOpen && (
               <div className="navbar-notification-dropdown">
                 <div className="navbar-notification-header">
+                  <h3>Notifications</h3>
+
                   <div>
-                    <h3>Notifications</h3>
+                    <span>
+                      {unreadCount} unread
+                    </span>
 
-                    {unreadCount > 0 && (
-                      <span>
-                        {unreadCount} unread
-                      </span>
-                    )}
-                  </div>
-
-                  {unreadCount > 0 && (
                     <button
                       type="button"
-                      onClick={
-                        handleMarkAllAsRead
-                      }
+                      onClick={handleMarkAllAsRead}
                     >
                       Mark all as read
                     </button>
-                  )}
+                  </div>
                 </div>
 
                 <div className="navbar-notification-list">
