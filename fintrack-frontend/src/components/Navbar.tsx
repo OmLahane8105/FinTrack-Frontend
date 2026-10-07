@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../context/useAuth";
@@ -217,6 +217,7 @@ export default function Navbar() {
         }`}
       >
         <div className="navbar-links">
+
           <Link to="/dashboard" onClick={closeMenus}>
             Dashboard
           </Link>
@@ -227,6 +228,10 @@ export default function Navbar() {
 
           <Link to="/transactions" onClick={closeMenus}>
             Transactions
+          </Link>
+
+          <Link to="/categories" onClick={closeMenus}>
+            Categories
           </Link>
 
           <Link to="/budgets" onClick={closeMenus}>
@@ -256,11 +261,13 @@ export default function Navbar() {
             <button
               type="button"
               className="navbar-more-button"
-              onClick={() =>
-                setMoreOpen((open) => !open)
-              }
+              onClick={() => {
+                setMoreOpen((open) => !open);
+                setNotificationsOpen(false);
+              }}
             >
               More
+
               <span className="navbar-more-arrow">
                 ▼
               </span>
@@ -277,9 +284,11 @@ export default function Navbar() {
               </div>
             )}
           </div>
+
         </div>
 
         <div className="navbar-user-links">
+
           <div className="navbar-notifications">
             <button
               type="button"
@@ -302,6 +311,7 @@ export default function Navbar() {
 
             {notificationsOpen && (
               <div className="navbar-notification-dropdown">
+
                 <div className="navbar-notification-header">
                   <h3>Notifications</h3>
 
@@ -320,12 +330,15 @@ export default function Navbar() {
                 </div>
 
                 <div className="navbar-notification-list">
+
                   {notificationsLoading ? (
                     <div className="navbar-notification-empty">
                       Loading notifications...
                     </div>
+
                   ) : notifications.length === 0 ? (
                     <div className="navbar-notification-empty">
+
                       <div className="navbar-notification-empty-icon">
                         🔔
                       </div>
@@ -337,7 +350,9 @@ export default function Navbar() {
                       <span>
                         You're all caught up.
                       </span>
+
                     </div>
+
                   ) : (
                     notifications.map(
                       (notification) => (
@@ -355,7 +370,9 @@ export default function Navbar() {
                             )
                           }
                         >
+
                           <div className="navbar-notification-item-top">
+
                             <strong>
                               {notification.title}
                             </strong>
@@ -363,6 +380,7 @@ export default function Navbar() {
                             {!notification.read && (
                               <span className="navbar-notification-dot" />
                             )}
+
                           </div>
 
                           <p>
@@ -374,10 +392,12 @@ export default function Navbar() {
                               notification.createdAt
                             )}
                           </span>
+
                         </button>
                       )
                     )
                   )}
+
                 </div>
               </div>
             )}
@@ -397,6 +417,7 @@ export default function Navbar() {
           >
             Logout
           </button>
+
         </div>
       </div>
     </nav>
