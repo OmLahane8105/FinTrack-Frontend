@@ -202,51 +202,45 @@ export default function Accounts() {
     };
 
 
-    try {
-
+        try {
       setSaving(true);
 
-
       if (editingId === null) {
-
         // CREATE
-
         await api.post(
           "/api/accounts",
           request
         );
-
       } else {
-
         // UPDATE
-
         await api.put(
           `/api/accounts/${editingId}`,
           request
         );
-
       }
-
 
       resetForm();
 
       await fetchAccounts();
 
-    }  catch (error: unknown) {
-        console.error(error);
+    } catch (error: unknown) {
+      console.error(error);
 
-        const message =
-          axios.isAxiosError(error)
-            ? error.response?.data?.message
-            : undefined;
+      const message =
+        axios.isAxiosError(error)
+          ? error.response?.data?.message
+          : undefined;
 
-        setError(
-          message ||
-            (editingId === null
-              ? "Unable to create account"
-              : "Unable to update account")
-        );
-      }
+      setError(
+        message ||
+          (editingId === null
+            ? "Unable to create account"
+            : "Unable to update account")
+      );
+
+    } finally {
+      setSaving(false);
+    }
   };
 
 
