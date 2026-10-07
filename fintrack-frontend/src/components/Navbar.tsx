@@ -1,4 +1,4 @@
- import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../context/useAuth";
@@ -183,6 +183,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
+
       <div className="navbar-brand">
         <Link
           to="/dashboard"
@@ -216,29 +217,55 @@ export default function Navbar() {
           mobileOpen ? "navbar-content-open" : ""
         }`}
       >
+
         <div className="navbar-links">
 
-          <Link to="/dashboard" onClick={closeMenus}>
+          <Link
+            to="/dashboard"
+            onClick={closeMenus}
+          >
             Dashboard
           </Link>
 
-          <Link to="/accounts" onClick={closeMenus}>
+          <Link
+            to="/accounts"
+            onClick={closeMenus}
+          >
             Accounts
           </Link>
 
-          <Link to="/transactions" onClick={closeMenus}>
+          <Link
+            to="/transactions"
+            onClick={closeMenus}
+          >
             Transactions
           </Link>
 
-          <Link to="/categories" onClick={closeMenus}>
+          <Link
+            to="/categories"
+            onClick={closeMenus}
+          >
             Categories
           </Link>
 
-          <Link to="/budgets" onClick={closeMenus}>
+          <Link
+            to="/transfers"
+            onClick={closeMenus}
+          >
+            Transfers
+          </Link>
+
+          <Link
+            to="/budgets"
+            onClick={closeMenus}
+          >
             Budgets
           </Link>
 
-          <Link to="/goals" onClick={closeMenus}>
+          <Link
+            to="/goals"
+            onClick={closeMenus}
+          >
             Goals
           </Link>
 
@@ -249,15 +276,22 @@ export default function Navbar() {
             Recurring
           </Link>
 
-          <Link to="/reports" onClick={closeMenus}>
+          <Link
+            to="/reports"
+            onClick={closeMenus}
+          >
             Reports
           </Link>
 
-          <Link to="/ai" onClick={closeMenus}>
+          <Link
+            to="/ai"
+            onClick={closeMenus}
+          >
             AI Assistant
           </Link>
 
           <div className="navbar-more">
+
             <button
               type="button"
               className="navbar-more-button"
@@ -275,14 +309,17 @@ export default function Navbar() {
 
             {moreOpen && (
               <div className="navbar-dropdown">
+
                 <Link
                   to="/insights"
                   onClick={closeMenus}
                 >
                   Financial Insights
                 </Link>
+
               </div>
             )}
+
           </div>
 
         </div>
@@ -290,6 +327,7 @@ export default function Navbar() {
         <div className="navbar-user-links">
 
           <div className="navbar-notifications">
+
             <button
               type="button"
               className="navbar-notification-button"
@@ -313,6 +351,7 @@ export default function Navbar() {
               <div className="navbar-notification-dropdown">
 
                 <div className="navbar-notification-header">
+
                   <h3>Notifications</h3>
 
                   <div>
@@ -327,6 +366,7 @@ export default function Navbar() {
                       Mark all as read
                     </button>
                   </div>
+
                 </div>
 
                 <div className="navbar-notification-list">
@@ -399,8 +439,10 @@ export default function Navbar() {
                   )}
 
                 </div>
+
               </div>
             )}
+
           </div>
 
           <Link
@@ -419,7 +461,9 @@ export default function Navbar() {
           </button>
 
         </div>
+
       </div>
+
     </nav>
   );
 }
