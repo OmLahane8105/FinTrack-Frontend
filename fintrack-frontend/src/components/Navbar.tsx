@@ -183,7 +183,6 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-
       <div className="navbar-brand">
         <Link
           to="/dashboard"
@@ -217,7 +216,6 @@ export default function Navbar() {
           mobileOpen ? "navbar-content-open" : ""
         }`}
       >
-
         <div className="navbar-links">
 
           <Link
@@ -242,17 +240,17 @@ export default function Navbar() {
           </Link>
 
           <Link
-            to="/categories"
-            onClick={closeMenus}
-          >
-            Categories
-          </Link>
-
-          <Link
             to="/transfers"
             onClick={closeMenus}
           >
             Transfers
+          </Link>
+
+          <Link
+            to="/categories"
+            onClick={closeMenus}
+          >
+            Categories
           </Link>
 
           <Link
@@ -269,29 +267,7 @@ export default function Navbar() {
             Goals
           </Link>
 
-          <Link
-            to="/recurring-transactions"
-            onClick={closeMenus}
-          >
-            Recurring
-          </Link>
-
-          <Link
-            to="/reports"
-            onClick={closeMenus}
-          >
-            Reports
-          </Link>
-
-          <Link
-            to="/ai"
-            onClick={closeMenus}
-          >
-            AI Assistant
-          </Link>
-
           <div className="navbar-more">
-
             <button
               type="button"
               className="navbar-more-button"
@@ -311,6 +287,27 @@ export default function Navbar() {
               <div className="navbar-dropdown">
 
                 <Link
+                  to="/recurring-transactions"
+                  onClick={closeMenus}
+                >
+                  Recurring
+                </Link>
+
+                <Link
+                  to="/reports"
+                  onClick={closeMenus}
+                >
+                  Reports
+                </Link>
+
+                <Link
+                  to="/ai"
+                  onClick={closeMenus}
+                >
+                  AI Assistant
+                </Link>
+
+                <Link
                   to="/insights"
                   onClick={closeMenus}
                 >
@@ -319,7 +316,6 @@ export default function Navbar() {
 
               </div>
             )}
-
           </div>
 
         </div>
@@ -327,7 +323,6 @@ export default function Navbar() {
         <div className="navbar-user-links">
 
           <div className="navbar-notifications">
-
             <button
               type="button"
               className="navbar-notification-button"
@@ -351,7 +346,6 @@ export default function Navbar() {
               <div className="navbar-notification-dropdown">
 
                 <div className="navbar-notification-header">
-
                   <h3>Notifications</h3>
 
                   <div>
@@ -366,7 +360,6 @@ export default function Navbar() {
                       Mark all as read
                     </button>
                   </div>
-
                 </div>
 
                 <div className="navbar-notification-list">
@@ -439,7 +432,6 @@ export default function Navbar() {
                   )}
 
                 </div>
-
               </div>
             )}
 
@@ -461,9 +453,7 @@ export default function Navbar() {
           </button>
 
         </div>
-
       </div>
-
     </nav>
   );
 }
