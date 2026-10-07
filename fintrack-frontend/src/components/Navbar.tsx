@@ -301,17 +301,17 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  to="/ai"
-                  onClick={closeMenus}
-                >
-                  AI Assistant
-                </Link>
-
-                <Link
                   to="/insights"
                   onClick={closeMenus}
                 >
                   Financial Insights
+                </Link>
+                
+                <Link
+                  to="/ai"
+                  onClick={closeMenus}
+                >
+                  AI Assistant
                 </Link>
 
               </div>
