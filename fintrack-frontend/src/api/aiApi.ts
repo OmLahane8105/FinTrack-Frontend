@@ -9,9 +9,12 @@ export interface AiInsightsResponse {
 export const getAiInsights =
   async (): Promise<AiInsightsResponse> => {
     const response =
-      await api.get<AiInsightsResponse>(
-        "/api/ai/insights"
-      );
+  await api.get<AiInsightsResponse>(
+    "/api/ai/insights",
+    {
+      timeout: 45000,
+    }
+  );
 
     return response.data;
   };
