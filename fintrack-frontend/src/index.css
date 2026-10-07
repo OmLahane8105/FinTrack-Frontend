@@ -2717,6 +2717,7 @@ tbody tr:hover {
   margin-top: 8px;
 }
 
+
 /* =========================================
    FINTRACK NAVBAR
 ========================================= */
@@ -2729,7 +2730,6 @@ tbody tr:hover {
   align-items: center;
 
   padding: 0 28px;
-
   box-sizing: border-box;
 
   background: #111827;
@@ -2739,24 +2739,16 @@ tbody tr:hover {
   z-index: 1000;
 }
 
-/* =========================================
-   LOGO
-========================================= */
-
 .navbar-brand {
   display: flex;
   align-items: center;
-
   flex-shrink: 0;
 }
 
 .navbar-brand a {
   display: flex;
   align-items: center;
-
   text-decoration: none;
-
-  flex-shrink: 0;
 }
 
 .navbar-logo {
@@ -2765,16 +2757,9 @@ tbody tr:hover {
   width: 130px;
   height: 58px;
 
-  margin: 0;
-
   object-fit: contain;
-
   flex-shrink: 0;
 }
-
-/* =========================================
-   NAVBAR CONTENT
-========================================= */
 
 .navbar-content {
   display: flex;
@@ -2788,16 +2773,11 @@ tbody tr:hover {
   justify-content: space-between;
 }
 
-/* =========================================
-   MAIN NAVIGATION
-========================================= */
-
 .navbar-links {
   display: flex;
   align-items: center;
 
   gap: 22px;
-
   min-width: 0;
 }
 
@@ -2806,7 +2786,6 @@ tbody tr:hover {
   align-items: center;
 
   color: #f8fafc;
-
   text-decoration: none;
 
   font-size: 16px;
@@ -2820,10 +2799,6 @@ tbody tr:hover {
 .navbar-links a:hover {
   color: #22c55e;
 }
-
-/* =========================================
-   MORE MENU
-========================================= */
 
 .navbar-more {
   position: relative;
@@ -2839,7 +2814,6 @@ tbody tr:hover {
   gap: 6px;
 
   height: 40px;
-
   padding: 0;
 
   border: none;
@@ -2852,7 +2826,6 @@ tbody tr:hover {
   font-weight: 500;
 
   cursor: pointer;
-
   white-space: nowrap;
 
   transition: color 0.2s ease;
@@ -2865,10 +2838,6 @@ tbody tr:hover {
 .navbar-more-arrow {
   font-size: 10px;
 }
-
-/* =========================================
-   MORE DROPDOWN
-========================================= */
 
 .navbar-dropdown {
   position: absolute;
@@ -2885,8 +2854,7 @@ tbody tr:hover {
   border: 1px solid #374151;
   border-radius: 10px;
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 
   display: flex;
   flex-direction: column;
@@ -2906,7 +2874,6 @@ tbody tr:hover {
   color: #f9fafb;
 
   font-size: 14px;
-
   text-decoration: none;
 
   white-space: nowrap;
@@ -2916,10 +2883,6 @@ tbody tr:hover {
   background: #374151;
   color: white;
 }
-
-/* =========================================
-   RIGHT SIDE
-========================================= */
 
 .navbar-user-links {
   display: flex;
@@ -2949,10 +2912,6 @@ tbody tr:hover {
 .navbar-user-links a:hover {
   color: #22c55e;
 }
-
-/* =========================================
-   NOTIFICATIONS
-========================================= */
 
 .navbar-notifications {
   position: relative;
@@ -3023,10 +2982,6 @@ tbody tr:hover {
   line-height: 1;
 }
 
-/* =========================================
-   NOTIFICATION DROPDOWN
-========================================= */
-
 .navbar-notification-dropdown {
   position: absolute;
 
@@ -3043,184 +2998,10 @@ tbody tr:hover {
   border: 1px solid #374151;
   border-radius: 12px;
 
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 
   z-index: 1100;
 }
-
-.navbar-notification-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 12px;
-
-  padding: 14px 16px;
-
-  border-bottom: 1px solid #374151;
-}
-
-.navbar-notification-header h3 {
-  margin: 0;
-
-  color: #f9fafb;
-
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.navbar-notification-header span {
-  display: block;
-
-  margin-top: 3px;
-
-  color: #9ca3af;
-
-  font-size: 11px;
-}
-
-.navbar-notification-header button {
-  border: none;
-  background: transparent;
-
-  color: #93c5fd;
-
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  white-space: nowrap;
-}
-
-.navbar-notification-header button:hover {
-  color: #bfdbfe;
-}
-
-.navbar-notification-list {
-  max-height: 420px;
-
-  overflow-y: auto;
-}
-
-.navbar-notification-item {
-  width: 100%;
-
-  display: block;
-
-  padding: 13px 16px;
-
-  border: none;
-  border-bottom: 1px solid #374151;
-
-  background: transparent;
-  color: #f9fafb;
-
-  font-family: inherit;
-
-  text-align: left;
-
-  cursor: pointer;
-
-  transition: background-color 0.2s ease;
-}
-
-.navbar-notification-item:last-child {
-  border-bottom: none;
-}
-
-.navbar-notification-item:hover {
-  background: #374151;
-}
-
-.navbar-notification-unread {
-  background: #26364b;
-}
-
-.navbar-notification-unread:hover {
-  background: #30445c;
-}
-
-.navbar-notification-item-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 10px;
-}
-
-.navbar-notification-item-top strong {
-  color: #f9fafb;
-
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.navbar-notification-item p {
-  margin: 5px 0 7px;
-
-  color: #d1d5db;
-
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.navbar-notification-time {
-  color: #9ca3af;
-
-  font-size: 10px;
-}
-
-.navbar-notification-dot {
-  flex-shrink: 0;
-
-  width: 7px;
-  height: 7px;
-
-  border-radius: 50%;
-
-  background: #60a5fa;
-}
-
-.navbar-notification-empty {
-  min-height: 160px;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 5px;
-
-  padding: 24px;
-
-  color: #9ca3af;
-
-  text-align: center;
-}
-
-.navbar-notification-empty strong {
-  color: #f9fafb;
-
-  font-size: 13px;
-}
-
-.navbar-notification-empty span {
-  font-size: 11px;
-}
-
-.navbar-notification-empty-icon {
-  margin-bottom: 5px;
-
-  font-size: 24px;
-}
-
-/* =========================================
-   LOGOUT
-========================================= */
 
 .navbar-logout {
   display: flex;
@@ -3243,7 +3024,6 @@ tbody tr:hover {
   font-weight: 600;
 
   cursor: pointer;
-
   white-space: nowrap;
 
   transition:
@@ -3259,10 +3039,6 @@ tbody tr:hover {
   transform: translateY(1px);
 }
 
-/* =========================================
-   MOBILE TOGGLE
-========================================= */
-
 .navbar-mobile-toggle {
   display: none;
 
@@ -3273,18 +3049,18 @@ tbody tr:hover {
   height: 42px;
 
   margin-left: auto;
-
   padding: 0;
 
   border: none;
-
   background: transparent;
+
   color: white;
 
   font-size: 24px;
 
   cursor: pointer;
 }
+
 
 /* =========================================
    TABLET / MOBILE
@@ -3299,48 +3075,45 @@ tbody tr:hover {
     padding: 0 16px;
   }
 
-  .navbar-brand {
-    flex-shrink: 0;
-  }
-
-  .navbar-brand a {
-    display: flex;
-    align-items: center;
-  }
-
   .navbar-logo {
     width: 92px;
     height: 50px;
-
-    margin: 0;
-
-    object-fit: contain;
   }
 
   .navbar-mobile-toggle {
     display: flex;
   }
 
+  /*
+   * IMPORTANT:
+   * The mobile menu is completely hidden
+   * until the hamburger is clicked.
+   */
   .navbar-content {
     display: none;
   }
 
-  /* Open mobile menu */
-
+  /*
+   * Open mobile menu.
+   */
   .navbar-content-open {
     position: absolute;
 
-    top: 100%;
+    top: 64px;
     left: 0;
     right: 0;
 
     display: flex;
-    flex-direction: column;
 
+    flex-direction: column;
     align-items: stretch;
+
+    width: 100%;
 
     margin: 0;
     padding: 14px 16px 18px;
+
+    box-sizing: border-box;
 
     background: #111827;
 
@@ -3349,13 +3122,13 @@ tbody tr:hover {
     box-shadow:
       0 12px 25px rgba(0, 0, 0, 0.25);
 
-    z-index: 1000;
+    z-index: 2000;
   }
 
   .navbar-content-open .navbar-links {
     display: flex;
-    flex-direction: column;
 
+    flex-direction: column;
     align-items: stretch;
 
     gap: 3px;
@@ -3403,12 +3176,16 @@ tbody tr:hover {
     box-sizing: border-box;
   }
 
+  /*
+   * Profile / notification / logout stay
+   * INSIDE the mobile menu.
+   */
   .navbar-content-open .navbar-user-links {
     width: 100%;
 
     display: flex;
-    flex-direction: column;
 
+    flex-direction: column;
     align-items: stretch;
 
     gap: 3px;
@@ -3417,6 +3194,8 @@ tbody tr:hover {
     padding-top: 12px;
 
     border-top: 1px solid #374151;
+
+    box-sizing: border-box;
   }
 
   .navbar-content-open .navbar-user-links a {
@@ -3459,10 +3238,10 @@ tbody tr:hover {
     width: 100%;
 
     margin-top: 3px;
-
     padding: 10px;
   }
 }
+
 
 /* =========================================
    SMALL MOBILE
@@ -3487,6 +3266,13 @@ tbody tr:hover {
     height: 40px;
 
     font-size: 22px;
+  }
+
+  .navbar-content-open {
+    top: 60px;
+
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .navbar-notification-dropdown {

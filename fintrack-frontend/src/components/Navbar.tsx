@@ -89,9 +89,7 @@ export default function Navbar() {
     }
 
     try {
-      await markNotificationAsRead(
-        notification.id
-      );
+      await markNotificationAsRead(notification.id);
 
       setNotifications((current) =>
         current.map((item) =>
@@ -190,7 +188,6 @@ export default function Navbar() {
           to="/dashboard"
           onClick={closeMenus}
           aria-label="FinTrack Dashboard"
-          className="navbar-brand-link"
         >
           <img
             src={fintrackLogo}
@@ -203,9 +200,11 @@ export default function Navbar() {
       <button
         type="button"
         className="navbar-mobile-toggle"
-        onClick={() =>
-          setMobileOpen((open) => !open)
-        }
+        onClick={() => {
+          setMobileOpen((open) => !open);
+          setNotificationsOpen(false);
+          setMoreOpen(false);
+        }}
         aria-label="Toggle navigation"
         aria-expanded={mobileOpen}
       >
@@ -214,44 +213,27 @@ export default function Navbar() {
 
       <div
         className={`navbar-content ${
-          mobileOpen
-            ? "navbar-content-open"
-            : ""
+          mobileOpen ? "navbar-content-open" : ""
         }`}
       >
         <div className="navbar-links">
-          <Link
-            to="/dashboard"
-            onClick={closeMenus}
-          >
+          <Link to="/dashboard" onClick={closeMenus}>
             Dashboard
           </Link>
 
-          <Link
-            to="/accounts"
-            onClick={closeMenus}
-          >
+          <Link to="/accounts" onClick={closeMenus}>
             Accounts
           </Link>
 
-          <Link
-            to="/transactions"
-            onClick={closeMenus}
-          >
+          <Link to="/transactions" onClick={closeMenus}>
             Transactions
           </Link>
 
-          <Link
-            to="/budgets"
-            onClick={closeMenus}
-          >
+          <Link to="/budgets" onClick={closeMenus}>
             Budgets
           </Link>
 
-          <Link
-            to="/goals"
-            onClick={closeMenus}
-          >
+          <Link to="/goals" onClick={closeMenus}>
             Goals
           </Link>
 
@@ -262,17 +244,11 @@ export default function Navbar() {
             Recurring
           </Link>
 
-          <Link
-            to="/reports"
-            onClick={closeMenus}
-          >
+          <Link to="/reports" onClick={closeMenus}>
             Reports
           </Link>
 
-          <Link
-            to="/ai"
-            onClick={closeMenus}
-          >
+          <Link to="/ai" onClick={closeMenus}>
             AI Assistant
           </Link>
 
