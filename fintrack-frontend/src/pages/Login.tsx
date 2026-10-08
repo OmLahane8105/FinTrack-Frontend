@@ -12,6 +12,7 @@ import {
 
 import { useAuth } from "../context/useAuth";
 import { getGoogleOAuthUrl } from "../api/authApi";
+import fintrackLogo from "../assets/fintrack-logo.png";
 
 export default function Login() {
 
@@ -87,7 +88,26 @@ export default function Login() {
 
       <div className="auth-card">
 
-        <h1>FinTrack</h1>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: "8px",
+          }}
+        >
+          <img
+            src={fintrackLogo}
+            alt="FinTrack"
+            style={{
+              display: "block",
+              width: "115px",
+              height: "auto",
+              maxHeight: "90px",
+              objectFit: "contain",
+            }}
+          />
+        </div>
 
         <h2>Login</h2>
 

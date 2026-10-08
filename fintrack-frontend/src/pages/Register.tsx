@@ -2,9 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import api from "../api/api";
+import fintrackLogo from "../assets/fintrack-logo.png";
 
 export default function Register() {
-
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,7 +14,6 @@ export default function Register() {
   const [success, setSuccess] = useState("");
 
   const [loading, setLoading] = useState(false);
-
 
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>
@@ -42,8 +41,6 @@ export default function Register() {
       setEmail("");
       setPassword("");
 
-      
-
     } catch (error: unknown) {
 
       console.error(error);
@@ -63,16 +60,33 @@ export default function Register() {
     }
   };
 
-
   return (
     <div className="auth-container">
 
       <div className="auth-card">
 
-        <h1>FinTrack</h1>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: "8px",
+          }}
+        >
+          <img
+            src={fintrackLogo}
+            alt="FinTrack"
+            style={{
+              display: "block",
+              width: "115px",
+              height: "auto",
+              maxHeight: "90px",
+              objectFit: "contain",
+            }}
+          />
+        </div>
 
         <h2>Create Account</h2>
-
 
         {error && (
           <div className="error-message">
@@ -80,54 +94,62 @@ export default function Register() {
           </div>
         )}
 
-
         {success && (
           <div className="success-message">
             {success}
           </div>
         )}
 
-
         <form onSubmit={handleSubmit}>
 
           <div className="form-group">
 
-            <label>Name</label>
+            <label>
+              Name
+            </label>
 
             <input
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) =>
+                setName(e.target.value)
+              }
               placeholder="Enter your name"
               required
             />
 
           </div>
 
-
           <div className="form-group">
 
-            <label>Email</label>
+            <label>
+              Email
+            </label>
 
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) =>
+                setEmail(e.target.value)
+              }
               placeholder="Enter your email"
               required
             />
 
           </div>
 
-
           <div className="form-group">
 
-            <label>Password</label>
+            <label>
+              Password
+            </label>
 
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
               placeholder="Minimum 6 characters"
               minLength={6}
               required
@@ -135,17 +157,17 @@ export default function Register() {
 
           </div>
 
-
           <button
             type="submit"
             className="primary-button"
             disabled={loading}
           >
-            {loading ? "Creating..." : "Register"}
+            {loading
+              ? "Creating..."
+              : "Register"}
           </button>
 
         </form>
-
 
         <p className="auth-link">
 
